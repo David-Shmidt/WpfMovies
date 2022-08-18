@@ -1,0 +1,28 @@
+﻿<Window x:Class="WpfMovies.Windows.ActorPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfMovies.Windows"
+        mc:Ignorable="d"
+        Title="ActorPage" Height="200" Width="350" WindowStartupLocation="CenterScreen" FontSize="18" Loaded="onLoaded">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Label Content="Name" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="62,0,0,0"></Label>
+        <TextBox Grid.Column="1" x:Name="textBoxActorName" VerticalAlignment="Center" HorizontalAlignment="Left" Width="151"></TextBox>
+        <Label Grid.Row="1" Content="Last Name" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="44,0,0,0"></Label>
+        <TextBox Grid.Row="1" Grid.Column="1" x:Name="textBoxActorLastName" VerticalAlignment="Center" HorizontalAlignment="Left" Width="151"></TextBox>
+
+        <Button Grid.Row="2"  x:Name="buttonSaveChanges" Click="ButtonSaveChanges_OnClick" Content="Save" Margin="44,15,38,15" ></Button>
+        <Button  Grid.Row="2"  Grid.Column="1" x:Name="buttonCloseWindow" Click="ButtonCloseWindow_OnClick" Content="Close" Margin="44,15,38,15" ></Button>
+
+    </Grid>
+</Window>

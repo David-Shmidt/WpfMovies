@@ -1,0 +1,90 @@
+﻿<Window x:Class="WpfMovies.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfMovies"
+        xmlns:viewModel="clr-namespace:WpfMovies.ViewModels"
+        xmlns:view="clr-namespace:WpfMovies.Views"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="600" Width="950" Background="#FFA5AFF0" FontSize="18">
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="3*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Label Content="Table Name" Grid.Column="1" x:Name="labelTableName" HorizontalAlignment="Center" VerticalAlignment="Center" Height="34" Width="104"></Label>
+        <ContentControl Grid.Row="1" Grid.RowSpan="3" Grid.Column="1" Content="{Binding}" Height="Auto" Width="Auto" x:Name="ContentData" Background="White"></ContentControl>
+
+        <StackPanel Grid.Row="1" >
+            <Button Grid.Row="1" Style="{StaticResource ButtonRoundedCorners}" Height="60" Width="202" Background="White" HorizontalAlignment="Left" Click ="ButtonActors_OnClick">
+                <Grid Width="200" Height="60">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="1" Content="Actors" HorizontalAlignment="Left" VerticalAlignment="Center"></Label>
+                    <Image Source="Images/ActorImage.png" VerticalAlignment="Center" HorizontalAlignment="Right" Width="50"></Image>
+                </Grid>
+            </Button>
+        </StackPanel>
+
+      
+
+        <StackPanel Grid.Row="2" Margin="0,0,0,0"  >
+            <Button Grid.Row="2" Height="60" Width="202" Background="White" HorizontalAlignment="Left" Click ="ButtonMovies_OnClick">
+                <Grid Width="200" Height="60">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="1" Content="Movies" HorizontalAlignment="Left" VerticalAlignment="Center"></Label>
+                    <Image Source="Images/MovieIcon.png" VerticalAlignment="Center" HorizontalAlignment="Right" Width="50"></Image>
+                </Grid>
+            </Button>
+        </StackPanel>
+
+        <StackPanel Grid.Row="3" Margin="0,0,0,0"  >
+            <Button Grid.Row="2" Height="60" Width="202" Background="White" HorizontalAlignment="Left" Click ="ButtonDirectors_OnClick">
+                <Grid Width="200" Height="60">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="1" Content="Directors" HorizontalAlignment="Left" VerticalAlignment="Center"></Label>
+                    <Image Source="Images/DirectorImage.png" VerticalAlignment="Center" HorizontalAlignment="Right" Width="50"></Image>
+                </Grid>
+            </Button>
+        </StackPanel>
+
+
+
+
+    </Grid>
+    <Window.Resources>
+        <DataTemplate x:Name="ActorTemplate" DataType="{x:Type viewModel:ActorVM}">
+            <view:ActorsList>
+
+            </view:ActorsList>
+        </DataTemplate>
+
+        <DataTemplate x:Name="MovieTemplate" DataType="{x:Type viewModel:MovieVM}">
+            <view:MovieList>
+
+            </view:MovieList>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewModel:DirectorVM}">
+            <view:DirectorsList>
+
+            </view:DirectorsList>
+        </DataTemplate>
+    </Window.Resources>
+</Window>
